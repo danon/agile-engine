@@ -24,7 +24,14 @@ def _strategy_2_balls(input: str) -> int:
 
 def _strategy_3_balls(input: str) -> int:
     evens, odds = __parity_analysis(input)
-    return min(evens, odds)
+    capacity_even = (len(input) + 1) // 2
+    capacity_odd = len(input) // 2
+    moves_candidates = []
+    if capacity_even > 2:
+        moves_candidates.append(3 - evens)
+    if capacity_odd > 2:
+        moves_candidates.append(3 - odds)
+    return min(moves_candidates)
 
 def space_between_2_balls(input: str) -> int:
     return input.rindex('B') - input.index('B')
