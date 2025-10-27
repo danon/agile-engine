@@ -10,8 +10,8 @@ def solution(input: str) -> int:
     if balls_count == 2:
         return _strategy_2_balls(input)
     if balls_count == 3:
-        return _strategy_3_balls(input)
-    raise Exception('Not implemented')
+        return _strategy_n_balls(input, 3)
+    return _strategy_n_balls(input, balls_count)
 
 def _strategy_1_ball():
     return 0
@@ -22,15 +22,15 @@ def _strategy_2_balls(input: str) -> int:
         return 0
     return 1
 
-def _strategy_3_balls(input: str) -> int:
+def _strategy_n_balls(input: str, balls: int) -> int:
     evens, odds = __parity_analysis(input)
     capacity_even = (len(input) + 1) // 2
     capacity_odd = len(input) // 2
     moves_candidates = []
-    if capacity_even > 2:
-        moves_candidates.append(3 - evens)
-    if capacity_odd > 2:
-        moves_candidates.append(3 - odds)
+    if capacity_even > balls - 1:
+        moves_candidates.append(balls - evens)
+    if capacity_odd > balls - 1:
+        moves_candidates.append(balls - odds)
     return min(moves_candidates)
 
 def space_between_2_balls(input: str) -> int:
