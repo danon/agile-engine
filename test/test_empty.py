@@ -58,8 +58,37 @@ def test_two_balls_in_bucket_4__needs_1_move__in_middle():
 
 # bucket size 5
 
-def test_four_balls_in_bucket_5__is_not_solvable():
+def test_four_or_more_balls_in_bucket_5__is_not_solvable():
+    assert solution('BBBBB') == -1
     assert solution('BBBB.') == -1
 
 def test_three_balls_in_bucket_5__is_solvable():
     assert solution('BBB..') > -1
+
+# bucket size 5 - chose 2
+
+def test_two_balls_in_bucket_5__near__requires_one_move():
+    assert solution('BB...') == 1
+
+def test_two_balls_in_bucket_5__1_space__is_solved():
+    assert solution('B.B..') == 0
+
+def test_two_balls_in_bucket_5__1_space2__requires_1_move():
+    assert solution('B..B.') == 1
+
+def test_two_balls_in_bucket_5__1_space3__requires_1_move():
+    assert solution('B...B') == 1
+
+def test_two_balls_in_bucket_5__1_space__offset__is_solved():
+    assert solution('.B.B.') == 0
+
+# bucket size 5 - chose 3
+
+def test_three_balls_in_bucket_5__spaces_out__are_solved():
+    assert solution('B.B.B') == 0
+
+def test_three_balls_in_bucket_5__spaces_out__all_at_start__needs_one_move():
+    assert solution('BBB..') == 1
+
+def test_three_balls_in_bucket_5__spaces_out__all_at_back__needs_one_move():
+    assert solution('..BBB') == 1
