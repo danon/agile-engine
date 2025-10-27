@@ -9,8 +9,6 @@ def solution(input: str) -> int:
         return _strategy_1_ball()
     if balls_count == 2:
         return _strategy_2_balls(input)
-    if balls_count == 3:
-        return _strategy_n_balls(input, 3)
     return _strategy_n_balls(input, balls_count)
 
 def _strategy_1_ball():
