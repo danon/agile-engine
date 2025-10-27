@@ -38,6 +38,24 @@ def test_two_balls_in_three_size_bucket__BEB_is_already_solved():
 def test_three_balls_in_bucket_4__is_not_solvable():
     assert solution('BBB.') == -1
 
+def test_two_balls_in_bucket_4__needs_1_move__both_at_front():
+    assert solution('BB..') == 1
+
+def test_two_balls_in_bucket_4__needs_1_move__both_at_back():
+    assert solution('..BB') == 1
+
+def test_two_balls_in_bucket_4__is_already_solved__from_start():
+    assert solution('B.B.') == 0
+
+def test_two_balls_in_bucket_4__needs_1_move__at_edges():
+    assert solution('B..B') == 1
+
+def test_two_balls_in_bucket_4__is_already_solved__from_end():
+    assert solution('.B.B') == 0
+
+def test_two_balls_in_bucket_4__needs_1_move__in_middle():
+    assert solution('.BB.') == 1
+
 # bucket size 5
 
 def test_four_balls_in_bucket_5__is_not_solvable():
