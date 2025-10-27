@@ -93,6 +93,9 @@ def test_three_balls_in_bucket_5__spaces_out__all_at_start__needs_one_move():
 def test_three_balls_in_bucket_5__spaces_out__all_at_back__needs_one_move():
     assert solution('..BBB') == 1
 
+def test_three_balls_in_bucket_5__each_in_middle__needs_two_move():
+    assert solution('.BBB.') == 2
+
 def test_three_balls_in_bucket_5__one_off1__needs_one_move():
     assert solution('.BB.B') == 1
 
@@ -104,6 +107,3 @@ def test_three_balls_in_bucket_5__two_spaces1__needs_one_move():
 
 def test_three_balls_in_bucket_5__two_spaces__needs_one_move():
     assert solution('B..BB') == 1
-
-def test_three_balls_in_bucket_5__each_in_middle__needs_two_move():
-    assert solution('.BBB.') == 2

@@ -27,9 +27,7 @@ def _strategy_3_balls(input: str) -> int:
     return min(evens, odds)
 
 def space_between_2_balls(input: str) -> int:
-    first = input.index('B')
-    second = input.rindex('B')
-    return second - first
+    return input.rindex('B') - input.index('B')
 
 def __parity_analysis(input: str) -> tuple[int, int]:
     evens = 0
