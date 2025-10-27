@@ -85,10 +85,25 @@ def test_two_balls_in_bucket_5__1_space__offset__is_solved():
 # bucket size 5 - chose 3
 
 def test_three_balls_in_bucket_5__spaces_out__are_solved():
-    assert solution('B.B.B') == 0
+    assert solution('B.B.B') == 0  # if balls are at max capacity, then they can only be spaced out to be solved
 
 def test_three_balls_in_bucket_5__spaces_out__all_at_start__needs_one_move():
     assert solution('BBB..') == 1
 
 def test_three_balls_in_bucket_5__spaces_out__all_at_back__needs_one_move():
     assert solution('..BBB') == 1
+
+def test_three_balls_in_bucket_5__one_off1__needs_one_move():
+    assert solution('.BB.B') == 1
+
+def test_three_balls_in_bucket_5__one_off2__needs_one_move():
+    assert solution('B.BB.') == 1
+
+def test_three_balls_in_bucket_5__two_spaces1__needs_one_move():
+    assert solution('BB..B') == 1
+
+def test_three_balls_in_bucket_5__two_spaces__needs_one_move():
+    assert solution('B..BB') == 1
+
+def test_three_balls_in_bucket_5__each_in_middle__needs_two_move():
+    assert solution('.BBB.') == 2

@@ -5,26 +5,26 @@ def solution(input: str) -> int:
         raise Exception('no balls in the bucket')
     if balls_count > spaces_count + 1:
         return -1
-    evens, odds = __parity_analysis(input)
     if balls_count == 1:
         return _strategy_1_ball()
     if balls_count == 2:
         return _strategy_2_balls(input)
-
-    if evens == 0:
-        return 0
-    if evens == 1 and odds == 1:
-        return 1
-    return 0
+    if balls_count == 3:
+        return _strategy_3_balls(input)
+    raise Exception('Not implemented')
 
 def _strategy_1_ball():
     return 0
 
-def _strategy_2_balls(input):
+def _strategy_2_balls(input: str) -> int:
     space_between_them = space_between_2_balls(input)
     if space_between_them == 2:
         return 0
     return 1
+
+def _strategy_3_balls(input: str) -> int:
+    evens, odds = __parity_analysis(input)
+    return min(evens, odds)
 
 def space_between_2_balls(input: str) -> int:
     first = input.index('B')
